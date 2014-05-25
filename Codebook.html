@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>========================================================================</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h2>========================================================================</h2>
+
+<h2>Codebook Version 1.0</h2>
+
+<h2>For the tidy data from UCI HAR Dataset smart Phone Data</h2>
+
+<h2>========================================================================</h2>
+
+<h3>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</h3>
+
+<h3>References</h3>
+
+<h3>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</h3>
+
+<ol>
+<li>original data : <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a></li>
+<li>run_analysis.R : the R code used to create the tidy dataset : &ldquo;subjectactivity.txt&rdquo; or &ldquo;subjectactivity.csv&rdquo;&ldquo;</li>
+<li>Readme.md : Explains the transforms used to create the tidy dataset</li>
+<li>This file (Codebook.md ): Explains all key variables used in the transform and explains the variables in the tidy dataset &quot;subjectactivity&rdquo;</li>
+</ol>
+
+<h3>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h3>
+
+<h3>Transform variables used in run_analysis.R</h3>
+
+<h3>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</h3>
+
+<ol>
+<li><p>sTest : Dataframe holding the subject id&#39;s from test folder. Dimensions:  1 column and 2947 rows</p></li>
+<li><p>xTest : Dataframe holding the X variables from test folder. Dimensions:  561 column and 2947 rows</p></li>
+<li><p>yTest : Dataframe holding the activity type in numeric format. Dimensions:  1 column and 2947 rows</p></li>
+<li><p>testAll : Combined test dataframe by merging subject, x, y and Names variables</p></li>
+<li><p>sTrain : Dataframe holding the subject id&#39;s from train folder. Dimensions:  1 column and 7352 rows</p></li>
+<li><p>xTrain : Dataframe holding the X variables from train folder. Dimensions:  561 column and 7352 rows</p></li>
+<li><p>yTrain : Dataframe holding the activity type in numeric format. Dimensions:  1 column and 7352 rows</p></li>
+<li><p>trainAll : Combined train dataframe by merging subject, x, y and Names variables</p></li>
+<li><p>features : Dataframe names for names of x values read from features.txt </p></li>
+<li><p>xNames : Character vector with transposed names from features</p></li>
+<li><p>allData : Combined test and train data rows and columns. Dimensions: 563 columns and 10299 rows</p></li>
+<li><p>n1 to n7 : temporary variables used to standardize the labels in the combined dataset</p></li>
+<li><p>p1 : temporary variables with all the indexes of 33 mean and 33 standard deviation measures and index for subject and activity type</p></li>
+<li><p>subData : Subset of the allData with only mean and standard deviation measures and subject id and activity type</p></li>
+<li><p>actMelt : Variable to id&#39;s(subject and activity. type) and measures(33 means and 33 standard deviations) to reshape the data</p></li>
+<li><p>subjectData : re-shaped data using actMelt</p></li>
+<li><p>subjectactivity.txt : output written using subjectData</p></li>
+</ol>
+
+<h3>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</h3>
+
+<h3>Variables in tidy Dataset : Subjectactivity.txt</h3>
+
+<h3>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</h3>
+
+<ol>
+<li>subject : id of the each of the 30 participants in the study. file has one row per each subject</li>
+<li>Columns 2 to 67 : All the means and standard deviations per subject when the subject was Laying down</li>
+<li>Columns 68 to 135 : All the means and standard deviations per subject when the subject was Sitting</li>
+<li>Columns 136 to 199 : All the means and standard deviations per subject when the subject was Standing</li>
+<li>Columns 200 to 265 : All the means and standard deviations per subject when the subject was Walking</li>
+<li>Columns 267 to 331 : All the means and standard deviations per subject when the subject was Walking Downstairs</li>
+<li>Columns 332 to 397 : All the means and standard deviations per subject when the subject was Walking upstairs</li>
+</ol>
+
+<h3>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</h3>
+
+<h3>End Notes</h3>
+
+<h3>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</h3>
+
+<blockquote>
+<p><em>The transforms are explained in Readme.md</em></p>
+
+<p><strong>The End</strong></p>
+</blockquote>
+
+</body>
+
+</html>
+

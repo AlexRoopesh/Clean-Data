@@ -36,7 +36,7 @@
 ## Changing activity types from numeric to descriptive 
 ## -------------------------------------------------------------------
 > 1. read activity_labels.txt in the UCI HAR Dataset folder
-> 2. use the labels from activity_labels.txt to remain the numeric values of "activity"
+> 2. use the labels from activity_labels.txt to rename the numeric values of "activity"
 >
 
 ## --------------------------------------
@@ -68,7 +68,7 @@
 ## -------------------------------------------------
 
 > * Load reshape library to access melt and dcast functions
-> * set subject and activity tupe as id and others varibales as measures
+> * set subject and activity type as id and others variables as measures
 > * create a data set with rows as the 30 subjects and measures with category as headers
 
 ## ---------------------------------------------------------------
@@ -76,8 +76,8 @@
 ## ---------------------------------------------------------------
 
 > * writes files in csv and txt. 
-> * only the code of csv is uncomment
-> * uncomment the code fo text if you would like to create a txt output
+> * only the code of csv is uncommented
+> * uncomment the code for text if you would like to create a txt output
 >
 
 ## ---------------------------------------------------------------
@@ -87,4 +87,3 @@
 > _The variables used and the variable names of the tidy set is explained in codebook.md_
 >
 > __The End__
-
